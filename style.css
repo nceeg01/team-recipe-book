@@ -1,0 +1,102 @@
+/* Import a clean and modern Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff9f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background: #ffb84c;
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Headings */
+h1, h2 {
+    text-align: center;
+    color: #ff7b00;
+    margin-top: 1.5em;
+}
+
+/* About Section */
+#About-Team {
+    background: #fff3e0;
+    padding: 1.5em;
+    margin: 2em auto;
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#About-Team h2 {
+    color: #ff7b00;
+}
+
+#About-Team p {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Team Members & Recipe Lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 60%;
+    margin: 1em auto;
+}
+
+ul li {
+    background: #fff;
+    margin: 0.5em 0;
+    padding: 0.75em 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+ul li a {
+    color: #ff7b00;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer (optional if you add one later) */
+footer {
+    text-align: center;
+    padding: 1em;
+    background: #ffb84c;
+    color: #fff;
+    margin-top: 2em;
+    font-size: 0.9em;
+}
