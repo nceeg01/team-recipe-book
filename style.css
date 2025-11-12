@@ -1,102 +1,282 @@
 /* Import a clean and modern Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* General Page Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fff9f4;
-    color: #333;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fff9f4 0%, #ffe8d6 100%);
+    color: #333;
     line-height: 1.6;
+    padding-bottom: 2em;
 }
 
 /* Navigation Bar */
 nav {
-    background: #ffb84c;
-    padding: 1em 0;
+    background: linear-gradient(90deg, #ffb84c 0%, #ff9800 100%);
+    padding: 1.2em 0;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-    color: #333;
+    color: #fff;
     text-decoration: none;
     margin: 0 15px;
     font-weight: 500;
-    transition: color 0.3s, transform 0.2s;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 nav a:hover {
-    color: #fff;
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
-/* Headings */
-h1, h2 {
+/* Main Headings */
+h1 {
     text-align: center;
     color: #ff7b00;
-    margin-top: 1.5em;
+    margin: 1.5em 0 0.5em 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #ff6b35;
+    margin: 1em 0 0.8em 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3 {
+    color: #ff7b00;
+    margin: 1.5em 0 0.8em 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border-bottom: 3px solid #ffb84c;
+    padding-bottom: 0.3em;
+    display: inline-block;
+}
+
+/* Content Container */
+body > *:not(nav) {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 2em;
 }
 
 /* About Section */
 #About-Team {
-    background: #fff3e0;
-    padding: 1.5em;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    padding: 2em;
     margin: 2em auto;
-    width: 80%;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #ff7b00;
 }
 
 #About-Team h2 {
     color: #ff7b00;
+    margin-top: 0;
+    text-align: left;
 }
 
 #About-Team p {
-    font-size: 1rem;
+    font-size: 1.05rem;
     text-align: justify;
+    color: #555;
+    line-height: 1.8;
 }
 
-/* Team Members & Recipe Lists */
-ul {
-    list-style-type: none;
-    padding: 0;
-    width: 60%;
-    margin: 1em auto;
+/* Lists */
+ul, ol {
+    margin: 1em 0 1.5em 0;
+    padding-left: 0;
 }
 
-ul li {
+/* Recipe Ingredient Lists */
+h3 + ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+h3 + ul li {
     background: #fff;
     margin: 0.5em 0;
-    padding: 0.75em 1em;
+    padding: 0.8em 1.2em;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #ffb84c;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 2.5em;
+}
+
+h3 + ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 1em;
+    color: #ff7b00;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+h3 + ul li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Recipe Instructions (Ordered Lists) */
+ol {
+    list-style: none;
+    counter-reset: step-counter;
+    padding-left: 0;
+}
+
+ol li {
+    background: #fff;
+    margin: 0.8em 0;
+    padding: 1em 1.2em 1em 3.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    counter-increment: step-counter;
+    transition: all 0.3s ease;
+}
+
+ol li:before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #ff7b00, #ffb84c);
+    color: white;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+ol li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Team Member Lists (on index page) */
+body > ul {
+    list-style: none;
+    padding: 0;
+}
+
+body > ul li {
+    background: #fff;
+    margin: 0.6em auto;
+    padding: 1em 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
+    max-width: 600px;
 }
 
-ul li:hover {
+body > ul li:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-ul li a {
+body > ul li a {
     color: #ff7b00;
     font-weight: 600;
     text-decoration: none;
+    font-size: 1.05rem;
 }
 
-ul li a:hover {
+body > ul li a:hover {
+    color: #ff6b35;
     text-decoration: underline;
 }
 
-/* Footer (optional if you add one later) */
-footer {
-    text-align: center;
-    padding: 1em;
-    background: #ffb84c;
-    color: #fff;
-    margin-top: 2em;
-    font-size: 0.9em;
+/* Recipe Meta Information (cooking time, serves) */
+p {
+    margin: 0.8em 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+body > p {
+    background: #fff;
+    display: inline-block;
+    padding: 0.6em 1.5em;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    margin: 0.5em 1em 0.5em 0;
+}
+
+/* Recipe Images */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 2em auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    
+    body > *:not(nav) {
+        padding: 0 1em;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+    }
+    
+    #About-Team {
+        padding: 1.5em;
+    }
+    
+    ol li, h3 + ul li {
+        padding-left: 3em;
+    }
 }
